@@ -1,0 +1,51 @@
+<config>
+  <!-- model directory contains the files for the classifier and dictionary: -->
+  <param name="model-directory" type="string">model/final/</param>
+  <!-- scan directory specifies the directory with laserscans, segments, and annotations: -->
+  <param name="scan-directory" type="string">data/test/</param>
+  <param name="result-directory" type="string">data/final/</param>
+  
+  <!-- octree params -->
+  <param name="bucket-size" type="integer">16</param>
+  
+  <!-- parameters for the segmentation -->
+  <param name="segmentation" type="composite">
+    <param name="resolution" type="float">0.2</param>
+    <param name="min height" type="float">0.3</param>
+    <param name="max distance" type="float">25</param>
+    <param name="min points" type="integer">50</param>
+  </param>
+  
+  <!-- bag-of-words parameters -->
+  <param name="bag-of-words" type="composite">
+    <param name="num words" type="integer">200</param>
+    <param name="vocabulary-filename" type="string">vocabulary.dat</param>
+    <param name="normalizer" type="string">L1</param>
+    
+    <!-- descriptor parameters -->
+    <param name="descriptor" type="composite">
+      <param name="name" type="string">Spin Image</param>
+      <param name="radius" type="float">1</param>
+      <param name="num-bins" type="integer">20</param>
+      <param name="normalizer" type="string">max</param>
+    </param>
+  </param>
+  
+  <!-- some classifier parameters for learning the model -->
+  <param name="classifier" type="composite">
+    <param name="lambda" type="float">0.0</param>
+    <param name="model-filename" type="string">classifier.dat</param>
+    <param name="optimization" type="string">scg</param>
+    <param name="scg" type="composite">
+      <param name="max iterations" type="integer">2000</param>
+    </param>
+  </param>
+
+  <!-- mapping of id to label strings -->
+  <param name="class-mapping" type="composite">
+    <param name="map1" type="string">Pedestrian:0</param>
+    <param name="map2" type="string">Car:1</param>
+    <param name="map3" type="string">Cyclist:2</param>
+    <param name="map4" type="string">Background:3</param>
+  </param>
+</config>

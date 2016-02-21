@@ -1,0 +1,44 @@
+Project "Segment-based Classification of Laser Range Data" -- Summer Term 2015
+
+Group4: Mohamad Sharaf and Ahmed Abdelbaki
+
+Summary of Milestone 1
+  1. (PASSED) Octree: initialization: 3 points
+  2. (PASSED) Octree: radius neighbor search: 2 points
+  3. (PASSED) Grid-based segmentation: 3 points
+    Remarks: In your region growing code, you actually have to use nwX, nwY to access 
+    neighboring grid cells. Currently, your segmentation produces only segments containing 
+    a single grid cell due to this error. You furthermore have to reset the grid cells 
+    with every new segmented scan (including minZ, maxZ).
+    
+  4. (PASSED) Spin Image computation: 2 points
+    Remark: You should either use bilinear interpolatation or none, not both, i.e., increasing by
+    one and furthermore adding (1-a)*(1-b).
+
+Summary of Milestone 2
+  5. (PASSED) Bag-of-Words computation: 3 points
+  6. (PASSED) K-means clustering: 3 points
+  7. (PASSED) Objective of softmax regression: 4 points
+    Remark: You should only substract the regularization once, not everytime.
+    Therefore, you are efficiently calculating the objective without the 1/N factor.
+
+Own contribution & classification model
+  8. (FOUND) Configuration and model files: 2 points
+  9. (MISSING) Description of contribution in doc-folder: 0 points
+    Reason: Missing description of contribution.
+
+
+Overall achieved points: 22 points
+
+-------------------------------------------------------------------------
+
+Runtime Analysis on Intel(R) Core(TM)2 Duo CPU T9600  @ 2.80GHz
+
+Name                    Avg. Runtime (s)    Sigma
+Octree Initialization   0.0734704           0.000194426
+Radius search           0.0013266           1.4615e-05
+Spin Image              0.0029883           6.12493e-05
+Segmentation            0.0108866           0.00150528
+Bag-of-Words            0.0153689           0.000146047
+K-means                 0.559221            0.119591
+SoftmaxRegression       0.524009            1.55489

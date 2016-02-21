@@ -1,0 +1,8 @@
+Name,Avg. Runtime, sigma
+Octree Initialization,0.0734704,0.000194426
+Radius search,0.0013266,1.4615e-05
+Spin Image,0.0029883,6.12493e-05
+Segmentation,0.0108866,0.00150528
+Bag-of-Words,0.0153689,0.000146047
+K-means,0.559221,0.119591
+SoftmaxRegression,0.524009,1.55489
